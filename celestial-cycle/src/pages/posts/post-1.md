@@ -4,10 +4,11 @@ pubDate: 2022-07-01
 description: 'Questo è il primo articolo del mio nuovo blog Astro.'
 author: 'Studente Astro'
 image:
-    url: 'https://docs.astro.build/assets/rose.webp'
-    alt: 'Il logo di Astro su uno sfondo scuro con un bagliore rosa.'
-tags: ["astro", "blogging", "imparare in pubblico"]
+  url: 'https://docs.astro.build/assets/rose.webp'
+  alt: 'Il logo di Astro su uno sfondo scuro con un bagliore rosa.'
+tags: ['astro', 'blogging', 'imparare in pubblico']
 ---
+
 # Il mio primo articolo del blog
 
 Pubblicato il: 2022-07-01
