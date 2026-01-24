@@ -1,18 +1,18 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogPost from '../components/BlogPost.astro';
 
+const posts = import.meta.glob('./posts/*.md',{eager: true});
+const allPosts = Object.values(posts);
 const pageTitle = 'Il mio Blog di apprendimento di Astro';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <p>Questo è dove pubblicherò sul mio percorso di apprendimento di Astro.</p>
   <ul>
-    <li><a href='/posts/post-1/'>Articolo 1</a></li>
-    <li><a href='/posts/post-2/'>Articolo 2</a></li>
-    <li><a href='/posts/post-3/'>Articolo 3</a></li>
+    <!-- {allPosts.map((post:any) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)} -->
+    {allPosts.map((post:any) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
   </ul>
 </BaseLayout>
     
