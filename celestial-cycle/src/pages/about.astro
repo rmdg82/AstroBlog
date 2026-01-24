@@ -1,7 +1,6 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageTitle = 'Su di me';
 
@@ -26,32 +25,8 @@ const finished = false;
 const goal: number = 3;
 
 const skillColor = 'navy';
-const fontWeight = 'bold';
-const textCase = 'uppercase';
 ---
-
-<html lang='en'>
-  <head>
-    <meta charset='utf-8' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='viewport' content='width=device-width' />
-    <meta name='generator' content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <style define:vars={{ skillColor }}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-      .skill {
-        color: var(--skillColor);
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-
-    <h1>{pageTitle}</h1>
+<BaseLayout pageTitle={pageTitle}>
     <h2>... e il mio nuovo sito Astro!</h2>
     <p>
       Sto seguendo il tutorial introduttivo di Astro. Questa è la seconda pagina
@@ -91,9 +66,17 @@ const textCase = 'uppercase';
         <p>Sto ancora lavorando al mio obiettivo.</p>
       )
     }
-    <Footer />
-    <script>
+</BaseLayout>
+  <script>
       import '../scripts/menu.js';
-    </script>
-  </body>
-</html>
+  </script>
+  <style is:global define:vars={{ skillColor }}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skill {
+        color: var(--skillColor);
+        font-weight: bold;
+      }
+  </style>
